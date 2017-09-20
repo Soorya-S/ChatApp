@@ -12,6 +12,7 @@
     tools:context="com.androidchatapp.Chat">
 
 
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
@@ -19,7 +20,10 @@
         android:layout_marginBottom="4dp"
         android:layout_alignParentBottom="@+id/message"
         android:layout_above="@+id/message"
+        android:scrollbars="vertical"
         />
+
+
 
 
     <EditText

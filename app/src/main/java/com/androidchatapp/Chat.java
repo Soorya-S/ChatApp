@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
@@ -32,16 +33,18 @@ public class Chat extends AppCompatActivity
 
     Button sendButton;
     EditText messageArea;
-    ScrollView scrollView;
+
     Firebase reference1, reference2;
 
-    RecyclerView recyclerView;
+    static RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerView.Adapter adapter;
 
     //private ArrayAdapter<String> arrayAdapter;
     public static ArrayList<String> message_list;
     public static ArrayList<Integer> type_list;
+
+    //ScrollView scrollView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +59,6 @@ public class Chat extends AppCompatActivity
 
         sendButton = (Button) findViewById(R.id.send_button);
         messageArea = (EditText)findViewById(R.id.message);
-        scrollView = (ScrollView)findViewById(R.id.scrollView);
 
         messageArea.setSelected(false);
 
@@ -71,6 +73,7 @@ public class Chat extends AppCompatActivity
         message_list = new ArrayList<>();
         type_list = new ArrayList<>();
 
+//        scrollView =(ScrollView)findViewById(R.id.scroll_view);
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +108,7 @@ public class Chat extends AppCompatActivity
                     RecyclerAdapter.message_list.add("You:\n" + message);
                     RecyclerAdapter.type_list.add(1);
                     adapter.notifyDataSetChanged();
+
                 }
                 else
                 {
@@ -112,7 +116,22 @@ public class Chat extends AppCompatActivity
                     RecyclerAdapter.type_list.add(2);
                     adapter.notifyDataSetChanged();
                 }
-                recyclerView.scrollToPosition(type_list.size()-1);
+                recyclerView.post(new Runnable() {
+                    @Override
+                    public void run()
+                    {
+                        recyclerView.scrollToPosition(recyclerView.getAdapter().getItemCount()-1);
+                    }
+                });
+
+
+//                scrollView.post(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                    scrollView.fullScroll(scrollView.FOCUS_DOWN);
+//                    }
+//                });
+
             }
 
 
