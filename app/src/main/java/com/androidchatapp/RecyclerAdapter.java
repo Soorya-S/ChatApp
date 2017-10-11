@@ -5,23 +5,15 @@ package com.androidchatapp;
  */
 
 
-import android.graphics.Paint;
-import android.support.v7.widget.CardView;
+
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.concurrent.RunnableFuture;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder>
 {
@@ -78,7 +70,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             lp2.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
             viewHolder.message_content_left.setText(message_list.get(i));
             viewHolder.message_content_left.setBackgroundResource(R.drawable.bubble_in);
-
         }
         else
         {
@@ -87,10 +78,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             viewHolder.message_content_left.setText(message_list.get(i));
 
             viewHolder.message_content_left.setBackgroundResource(R.drawable.bubble_out);
-
         }
        viewHolder.message_content_left.setLayoutParams(lp2);
-
     }
 
     @Override

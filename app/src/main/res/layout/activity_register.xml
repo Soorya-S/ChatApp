@@ -20,37 +20,31 @@
         android:text="Register"
         android:textSize="30dp" />
 
+
+    <EditText
+        android:id="@+id/phonenumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:hint="Phone Number"
+        android:inputType="number"
+        android:maxLines="1" />
+
     <EditText
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:hint="User name"
+        android:hint="Name"
         android:inputType="text"
         android:maxLines="1" />
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:hint="New Password"
-        android:inputType="textPassword"
-        android:maxLines="1" />
-
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:id="@+id/registerButton"
-        android:layout_marginBottom="20dp"/>
 
-    <TextView
+        android:id="@+id/register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Click here to login"
-        android:textSize="20dp"
-        android:gravity="center"
-        android:id="@+id/login"/>
+        android:layout_marginBottom="20dp"
+        android:text="Register" />
 
 </LinearLayout>

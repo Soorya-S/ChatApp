@@ -2,6 +2,7 @@ package com.androidchatapp;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -40,11 +41,18 @@ public class Users extends AppCompatActivity {
 
     Firebase reference1;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
 
+        SharedPreferences pref = getSharedPreferences("COOKIE", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        String p_tmp = pref.getString("PHONE_NUMBER", "NEW_USER");
+        String u_tmp = pref.getString("USER_NAME", "NEW_USER");
 
+        if(!u_tmp.equals("NEW_USER"))   UserDetails.username=u_tmp;
+        if(!p_tmp.equals("NEW_USER"))   UserDetails.phone=p_tmp;
 
         usersList = (ListView)findViewById(R.id.usersList);
         noUsersText = (TextView)findViewById(R.id.noUsersText);
