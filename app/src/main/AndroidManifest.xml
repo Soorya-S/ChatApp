@@ -29,7 +29,12 @@
         <activity android:name=".Users" />
         <activity android:name=".Chat" />
         <activity android:name=".Register" />
-        <activity android:name=".OTPVerification"></activity>
+        <activity android:name=".OTPVerification" />
+        <activity
+            android:name=".WelcomeScreen"
+            android:label="activity_welcome_screen"
+            android:theme="@style/AppTheme.Fullscreen">
+        </activity>
     </application>
 
 </manifest>
